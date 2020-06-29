@@ -3,6 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+Random rnd = new Random();
+
+final int n = rnd.nextInt(10) + 20;
+
 class Challenge13 extends StatefulWidget {
   @override
   _Challenge13State createState() => _Challenge13State();
@@ -10,24 +14,13 @@ class Challenge13 extends StatefulWidget {
 
 class _Challenge13State extends State<Challenge13> {
   var _userController;
-  Random rnd = new Random();
-  int n = 0;
   String removeMsg = '';
   String winMsg = '';
   String lefMsg = '';
   int player = 0;
   int comp;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    setState(() {
-      n = rnd.nextInt(10) + 20;
-    });
-    print('starting' + ' is : ' + n.toString());
-  }
-
-  @override
+  
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -76,69 +69,70 @@ class _Challenge13State extends State<Challenge13> {
               RaisedButton(
                 child: Text('play'),
                 onPressed: () {
+                  var startingNumber = n;
 //                  setState(() {
 //                    n = rnd.nextInt(10) + 20;
 //                  });
 
-                  while (n > 0) {
+                  while (startingNumber > 0) {
                     print('player' + '  is : ' + player.toString());
 //                    print("How many do you want to remove? ");
                     if (player < 1 || player > 3) {
                       print("Invalid input. How many do you want to remove?");
                     }
-                    if (n == 3 && player == 3) {
+                    if (startingNumber == 3 && player == 3) {
                       setState(() {
                         winMsg = "Computer wins";
                       });
                       print("Computer wins");
                       break;
-                    } else if (n == 2 && player == 2) {
+                    } else if (startingNumber == 2 && player == 2) {
                       setState(() {
                         winMsg = "Computer wins";
                       });
 
                       print("Computer wins");
                       break;
-                    } else if (n == 1 && player == 1) {
+                    } else if (startingNumber == 1 && player == 1) {
                       setState(() {
                         winMsg = "Computer wins";
                       });
                       print("Computer wins");
                       break;
                     }
-                    n -= player;
+                    startingNumber -= player;
                     setState(() {
-                      lefMsg = n.toString() + " left";
+                      lefMsg = startingNumber.toString() + " left";
                     });
-                    print(n.toString() + " left");
+                    print(startingNumber.toString() + " left");
 
                     setState(() {
                       comp = 0;
                     });
-                    if (n == 1) {
+                    if (startingNumber == 1) {
                       setState(() {
                         winMsg = "You win";
                       });
                       print("You win");
                       break;
-                    } else if (n == 2) {
-                      n -= 1;
+                    } else if (startingNumber == 2) {
+                      startingNumber -= 1;
                       setState(() {
                         removeMsg = "Computer removes 1";
                       });
                       print("Computer removes 1");
-                      print(n.toString() + " left");
-                    } else if (n == 3) {
-                      n -= 2;
+                      print(startingNumber.toString() + " left");
+                    } else if (startingNumber == 3) {
+                      startingNumber -= 2;
                       setState(() {
                         removeMsg = "Computer removes 2";
                       });
                       print("Computer removes 2");
                       setState(() {
-                        lefMsg = n.toString() + " left";
+                        lefMsg = startingNumber.toString() + " left";
                       });
-                      print(n.toString() + " left");
-                    } else if (n > 3) {
+                      print(startingNumber.toString() + " left");
+                    } else if (startingNumber > 3) {
                       setState(() {
                         comp = rnd.nextInt(3) + 1;
                         removeMsg = "Computer removes " + comp.toString();
@@ -146,11 +140,11 @@ class _Challenge13State extends State<Challenge13> {
 
                       print("Computer removes " + comp.toString());
 
-                      if ((n -= comp) > 0) {
+                      if ((startingNumber -= comp) > 0) {
                         setState(() {
-                          lefMsg = n.toString() + " left";
+                          lefMsg = startingNumber.toString() + " left";
                         });
-                        print(n.toString() + " left");
+                        print(startingNumber.toString() + " left");
                       } else {
                         setState(() {
                           winMsg = "You win";
