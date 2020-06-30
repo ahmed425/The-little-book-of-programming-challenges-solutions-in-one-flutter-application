@@ -15,6 +15,8 @@ import 'package:challengesahmed/widgets/vote_check.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'challenge_15.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -149,11 +151,20 @@ class Home extends StatelessWidget {
                 },
               ),
               RaisedButton(
-                child: Text('Challenge 1'),
+                child: Text('Challenge 14'),
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (BuildContext context) {
                     return Challenge14();
+                  }));
+                },
+              ),
+              RaisedButton(
+                child: Text('Challenge 15'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (BuildContext context) {
+                    return Challenge15();
                   }));
                 },
               ),

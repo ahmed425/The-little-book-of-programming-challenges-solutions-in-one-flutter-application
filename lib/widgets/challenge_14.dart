@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -86,11 +85,12 @@ class _Challenge14State extends State<Challenge14> {
                 },
               ),
 
-              _startingText != '' ? Text(_startingText) : Text(''),
+              _startingText != '' && _clicked == 1
+                  ? Text(_startingText)
+                  : Text(''),
               _invalid != '' ? Text(_invalid) : Text(''),
               _nxtMsg != '' ? Text(_nxtMsg) : Text(''),
 
-//              for (var i in text) Text(i.toString()),
               _loseMsg1 != '' ? Text(_loseMsg1) : Text(''),
               _winMsg != '' ? Text(_winMsg) : Text(''),
               _loseMsg2 != '' ? Text(_loseMsg2) : Text(''),
@@ -291,136 +291,4 @@ class _Challenge14State extends State<Challenge14> {
       });
     }
   }
-//
-////    if(turns > 0 && lives > 0) {
-//    //Next Number
-//    for (int i = 10; i > 0; i--) {
-//      turns--;
-//      n1 = rnd.nextInt(13) + 1;
-//      setState(() {
-//        _startingText = "Starting number is : " + n1.toString();
-//      });
-//      n2 = rnd.nextInt(13) + 1;
-////      Fluttertoast.showToast(
-////        msg: "Enter Higher(H) or Lower(L)? in the text field and press play",
-////        toastLength: Toast.LENGTH_LONG,
-////      );
-//
-////      System.out.print("Higher(H) or Lower(L)?");
-//////      String choice = in.nextLine();
-////      if (choice != "L" && choice != "H") {
-////        setState(() {
-////          print('invalid');
-////          _invalid = 'Invalid input. Higher(H) or Lower(L)?';
-////        });
-//
-////    System.out.print("Invalid input. Higher(H) or Lower(L)?");
-////    choice = in.nextLine();
-////      }
-//
-//      if (choice == "H" && n2 < n1) {
-//        setState(() {
-//          _loseMsg1 = 'You lose';
-//        });
-////        break;
-////        Fluttertoast.showToast(
-////          msg: "You lose",
-////          toastLength: Toast.LENGTH_LONG,
-////        );
-////    System.out.println("You lose");
-////        lives--;
-////        setState(() {
-////          _livesMsg1 = 'You have ' + lives.toString() + 'lives';
-////        });
-////        Fluttertoast.showToast(
-////          msg: "You have " + lives.toString() + " lives",
-////          toastLength: Toast.LENGTH_LONG,
-////        );
-////    System.out.println("You have " + lives + " lives");
-//      } else if (choice == "L" && n2 > n1) {
-//        setState(() {
-//          _loseMsg2 = 'You lose';
-//        });
-////        break;
-////    System.out.println("You lose");
-////        lives--;
-////        setState(() {
-////          _livesMsg2 = 'You have ' + lives.toString() + 'lives';
-////        });
-////        Fluttertoast.showToast(
-////          msg: "You have " + lives.toString() + " lives",
-////          toastLength: Toast.LENGTH_LONG,
-////        );
-////    System.out.println("You have " + lives + " lives");
-//      } else {
-//        n2 = rnd.nextInt(13) + 1;
-//
-//        setState(() {
-//          _nxtMsg = 'Next number   ' + n2.toString();
-//        });
-////        Fluttertoast.showToast(
-////          msg: "Next number  + n2.toString()",
-////          toastLength: Toast.LENGTH_LONG,
-////        );
-////    System.out.println("Next number " + n2);
-////      n1 = rnd.nextInt(13) + 1;
-//      }
-//    }
-////    System.out.println();
-//    if (turns == 0) {
-//      setState(() {
-//        _winMsg = 'You win';
-//      });
-//        Fluttertoast.showToast(
-//          msg: "You win",
-//          toastLength: Toast.LENGTH_LONG,
-//        );
-//    System.out.println("You win");
-//        break;
-
 }
-
-//class Challenge14 {
-//
-//
-// static Random rnd = new Random();
-//  int turns = 10, lives = 2,  n2;
-//
-////  System.out.println("You have 2 lives");
-// int  n1 = rnd.nextInt(13) + 1;
-////  System.out.println("Starting number: " + n1);
-//
-//  while(turns > 0 && lives > 0){
-//  n2 = rnd.nextInt(13) + 1;
-//  System.out.print("Higher(H) or Lower(L)?");
-//  String choice = in.nextLine();
-//  while(!choice.equals("L") && !choice.equals("H")){
-//  System.out.print("Invalid input. Higher(H) or Lower(L)?");
-//  choice = in.nextLine();
-//  }
-//
-//  if(choice.equals("H") && n2 < n1){
-//  System.out.println("You lose");
-//  lives--;
-//  System.out.println("You have " + lives + " lives");
-//  }
-//  else if(choice.equals("L") && n2 > n1){
-//  System.out.println("You lose");
-//  lives--;
-//  System.out.println("You have " + lives + " lives");
-//  }
-//  else{
-//  System.out.println("Next number " + n2);
-//  n1 = rnd.nextInt(13) + 1;
-//  }
-//  turns--;
-//  System.out.println();
-//  if(turns == 0 && lives > 0){
-//  System.out.println("You win");
-//  }
-//
-//  }
-//
-//  in.close();
-//  }
-//
