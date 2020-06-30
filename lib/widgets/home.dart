@@ -3,6 +3,7 @@ import 'package:challengesahmed/widgets/alphabet_challenge.dart';
 import 'package:challengesahmed/widgets/challenge_10.dart';
 import 'package:challengesahmed/widgets/challenge_12.dart';
 import 'package:challengesahmed/widgets/challenge_13.dart';
+import 'package:challengesahmed/widgets/challenge_14.dart';
 import 'package:challengesahmed/widgets/challenge_9.dart';
 import 'package:challengesahmed/widgets/distance_calc.dart';
 import 'package:challengesahmed/widgets/guess_time.dart';
@@ -144,6 +145,15 @@ class Home extends StatelessWidget {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (BuildContext context) {
                     return Challenge13();
+                  }));
+                },
+              ),
+              RaisedButton(
+                child: Text('Challenge 1'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (BuildContext context) {
+                    return Challenge14();
                   }));
                 },
               ),

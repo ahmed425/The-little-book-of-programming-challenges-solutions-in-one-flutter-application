@@ -19,8 +19,8 @@ class _Challenge13State extends State<Challenge13> {
   String lefMsg = '';
   int player = 0;
   int comp;
-  
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
