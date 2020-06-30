@@ -16,6 +16,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'challenge_15.dart';
+import 'challenge_16.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -165,6 +166,15 @@ class Home extends StatelessWidget {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (BuildContext context) {
                     return Challenge15();
+                  }));
+                },
+              ),
+              RaisedButton(
+                child: Text('Challenge 16'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (BuildContext context) {
+                    return Challenge16();
                   }));
                 },
               ),
