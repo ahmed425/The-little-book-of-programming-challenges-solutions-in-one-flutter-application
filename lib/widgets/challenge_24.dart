@@ -173,6 +173,9 @@ class _Challenge24State extends State<Challenge24> {
                 myres = [];
                 print(myres);
                 i = 0;
+                setState(() {
+                  _msg = '';
+                });
               },
             ),
             Container(
@@ -193,133 +196,56 @@ class _Challenge24State extends State<Challenge24> {
             RaisedButton(
               child: Text('Search for a result'),
               onPressed: () {
-                for (int i = 0; i < myres.length; i++) {
-                  if (myres[i].awayTeam == search) {
-                    setState(() {
-                      _msg = 'Home team: ' +
-                          myres[i].homeTeam +
-                          " " +
-                          "Score: " +
-                          myres[i].homeTeamScore.toString() +
-                          " - " +
-                          "Away Team: " +
-                          myres[i].awayTeam +
-                          " " +
-                          "Score: " +
-                          myres[i].awayTeamScore.toString();
-                    });
-                  } else if (myres[i].homeTeam == search) {
-                    setState(() {
-                      _msg = "HomeTeam: " +
-                          myres[i].homeTeam +
-                          " " +
-                          "Score: " +
-                          myres[i].homeTeamScore.toString() +
-                          " - " +
-                          "AwayTeam: " +
-                          myres[i].awayTeam +
-                          " " +
-                          "Score: " +
-                          myres[i].awayTeamScore.toString();
-                    });
-                  } else {
-                    setState(() {
-                      _msg = "No results for this team";
-                    });
+                if (myres.isEmpty) {
+                  print('empty');
+                  setState(() {
+                    _msg =
+                        'The results array is empty, please add results first';
+                  });
+                } else {
+                  for (int j = 0; j < myres.length; j++) {
+                    if (myres[j].awayTeam == search) {
+                      setState(() {
+                        _msg = 'Home team: ' +
+                            myres[j].homeTeam +
+                            " " +
+                            "Score: " +
+                            myres[j].homeTeamScore.toString() +
+                            " - " +
+                            "Away Team: " +
+                            myres[j].awayTeam +
+                            " " +
+                            "Score: " +
+                            myres[j].awayTeamScore.toString();
+                      });
+                    } else if (myres[j].homeTeam == search) {
+                      setState(() {
+                        _msg = "HomeTeam: " +
+                            myres[j].homeTeam +
+                            " " +
+                            "Score: " +
+                            myres[j].homeTeamScore.toString() +
+                            " - " +
+                            "AwayTeam: " +
+                            myres[j].awayTeam +
+                            " " +
+                            "Score: " +
+                            myres[j].awayTeamScore.toString();
+                      });
+                    } else {
+                      setState(() {
+                        _msg = "No results for this team";
+                      });
+                    }
                   }
-//                      System.out.println("No results for this team");
-//                  }catch(NullPointerException e){
-
-//                }
                 }
-//                setState(() {
-////                  _clicked = true;
-//                });
-//                getTextWidgets();
               },
             ),
-//            RaisedButton(
-//              child: Text('Hide Array'),
-//              onPressed: () {
-//                setState(() {
-//                  _clicked = false;
-//                });
-////                getTextWidgets();
-//              },
-//            ),
-//            RaisedButton(
-//              child: Text('Try to guess the 1 position in the array'),
-//              onPressed: () {
-////                getTextWidgets();
-//                if (x[xCo][yCo] == 1) {
-//                  setState(() {
-//                    _msg = 'Success';
-//                  });
-//                } else {
-//                  setState(() {
-//                    _msg = 'Not correct,Try again';
-//                  });
-//                }
-//              },
-//            ),
-
-//            getTextWidgets(),
-//            x != null && _clicked ? Text(x.toList().toString()) : Text(''),
-            _msg != null ? Text(_msg) : Text(''),
-//            getTextWidgets(),
-//          for (int i = 0; i < x.length; i++) {
-////            Text('')
-//                  for (int j = 0; j < x[i].length; j++) {
-//                 return new  Text('');
-//                  }
-//    }
 //
-//            RaisedButton(
-//              child: Text('Display Array with background'),
-//              onPressed: () {
-//                for (int i = 0; i < x.length; i++) {
-//                  for (int j = 0; j < x[i].length; j++) {
-////                    x[i][j] = rnd.nextInt(15);
-//        (x[i][j].toString() + "\t");
-//                  }
-//      print("\n");
-//                }
-//              },
-//            ),
+            _msg != null ? Text(_msg) : Text(''),
           ],
         ),
       )),
     );
   }
-
-//  Widget getTextWidgets() {
-//    List<Widget> list = new List<Widget>();
-//    for (int i = 0; i < x.length; i++) {
-//      for (int j = 0; j < x[i].length; j++) {
-////        x[i][j] = rnd.nextInt(15);
-//        list.add(Container(child: new Text(x[i][j].toString())));
-//
-////        print(x[i][j].toString() + "\t");
-//      }
-//      return new Row(children: list);
-//
-////      print("\n");
-//    }
-//    return new Row(children: list);
-//  }
-
-//  void createArr() {
-//    Random rnd = new Random();
-//
-//    for (int i = 0; i < x.length; i++) {
-//      for (int j = 0; j < x[i].length; j++) {
-//        setState(() {
-//          x[i][j] = rnd.nextInt(15);
-//        });
-////        print(x[i][j].toString() + "\t");
-//      }
-////      print("\n");
-//    }
-//    print(x.toString());
-//  }
 }
