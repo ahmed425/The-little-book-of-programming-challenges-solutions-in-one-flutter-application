@@ -133,7 +133,6 @@ class _Challenge27State extends State<Challenge27> {
           _msg5 = '';
           _msg3 = "You guessed it right , you win ! ";
         });
-//    in.close();
         return;
       } else {
         letter = userGuess.substring(0, 0);
@@ -142,8 +141,6 @@ class _Challenge27State extends State<Challenge27> {
       for (int i = 0; i < word.length; i++) {
         if (word.substring(i, i) == letter) guess[i] = letter;
       }
-
-//    System.out.println("You lose!");
     }
     if (lives < 0)
       setState(() {
@@ -153,7 +150,6 @@ class _Challenge27State extends State<Challenge27> {
         _msg3 = '';
         _msg5 = '';
       });
-//    in.close();
   }
 
   void printList(List arr) {
