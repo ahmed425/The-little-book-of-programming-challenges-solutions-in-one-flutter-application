@@ -1,5 +1,4 @@
 import 'package:challengesahmed/widgets/home.dart';
-import 'package:challengesahmed/widgets/joke_display.dart';
 import 'package:flutter/material.dart';
 
 void main() {
