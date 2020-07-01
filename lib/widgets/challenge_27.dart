@@ -11,12 +11,12 @@ String choice;
 int lives = 12;
 var code = new List(4);
 
-class Challenge26 extends StatefulWidget {
+class Challenge27 extends StatefulWidget {
   @override
-  _Challenge26State createState() => _Challenge26State();
+  _Challenge27State createState() => _Challenge27State();
 }
 
-class _Challenge26State extends State<Challenge26> {
+class _Challenge27State extends State<Challenge27> {
   var _msg1 = '';
   var _msg2 = '';
   var _msg3 = '';
@@ -24,8 +24,6 @@ class _Challenge26State extends State<Challenge26> {
   var _msg5 = '';
 
   dynamic input;
-
-  bool _clicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +69,6 @@ class _Challenge26State extends State<Challenge26> {
             RaisedButton(
               child: Text('Reset'),
               onPressed: () {
-                setState(() {
-                  _clicked = false;
-                });
                 lives = 12;
                 Random rnd = new Random();
                 for (int i = 0; i < code.length; i++) {
@@ -90,22 +85,11 @@ class _Challenge26State extends State<Challenge26> {
                 });
               },
             ),
-            RaisedButton(
-              child: Text('Show code'),
-              onPressed: () {
-                setState(() {
-                  _clicked = true;
-                });
-              },
-            ),
             _msg1 != null ? Text(_msg1) : Text(''),
             _msg2 != null ? Text(_msg2) : Text(''),
             _msg3 != null ? Text(_msg3) : Text(''),
             _msg4 != null ? Text(_msg4) : Text(''),
             _msg5 != null ? Text(_msg5) : Text(''),
-            code != null && _clicked
-                ? Text('Code is :' + ' ' + code.toString())
-                : Text(''),
           ],
         ),
       )),
