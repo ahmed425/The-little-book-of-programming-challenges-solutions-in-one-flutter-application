@@ -1,4 +1,4 @@
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -16,10 +16,10 @@ class Challenge18 extends StatefulWidget {
 class _Challenge18State extends State<Challenge18> {
   var _mod1Controller;
 
-  var _mod1maxController;
-  var _mod1Msg = '';
-  var _mod2Msg = '';
-  var _ASMsg = '';
+//  var _mod1maxController;
+//  var _mod1Msg = '';
+//  var _mod2Msg = '';
+//  var _ASMsg = '';
 
   var _astriskMsg = '';
 
