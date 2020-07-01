@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HelloName extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: MyStatefulWidget(),
-    );
+    return Scaffold(body: MyStatefulWidget());
   }
 }
 
@@ -33,6 +28,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   Widget build(BuildContext context) {
+    String name = '';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -41,7 +37,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           color: Colors.white, //change your color here
         ),
       ),
-      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -51,6 +46,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: _controller,
+                  onChanged: (value) {
+                    name = value;
+                  },
                   onSubmitted: (String value) async {
                     await showDialog<void>(
                       context: context,
@@ -72,6 +70,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   },
                 ),
               ),
+              RaisedButton(
+                  child: Text('Display Hello'),
+                  onPressed: () {
+                    showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Hello'),
+                            content: Text('Hello "$name".'),
+                            actions: <Widget>[
+                              FlatButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        });
+                  }),
             ],
           ),
         ),
