@@ -22,6 +22,7 @@ import 'challenge_18.dart';
 import 'challenge_19.dart';
 import 'challenge_20.dart';
 import 'challenge_21.dart';
+import 'challenge_22.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -228,6 +229,60 @@ class Home extends StatelessWidget {
                   }));
                 },
               ),
+              RaisedButton(
+                child: Text('Challenge 22'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (BuildContext context) {
+                    return Challenge22();
+                  }));
+                },
+              ),
+//              RaisedButton(
+//                child: Text('Challenge 23'),
+//                onPressed: () {
+//                  Navigator.of(context)
+//                      .push(MaterialPageRoute(builder: (BuildContext context) {
+//                    return Challenge23();
+//                  }));
+//                },
+//              ),
+//              RaisedButton(
+//                child: Text('Challenge 24'),
+//                onPressed: () {
+//                  Navigator.of(context)
+//                      .push(MaterialPageRoute(builder: (BuildContext context) {
+//                    return Challenge24();
+//                  }));
+//                },
+//              ),
+//              RaisedButton(
+//                child: Text('Challenge 25'),
+//                onPressed: () {
+//                  Navigator.of(context)
+//                      .push(MaterialPageRoute(builder: (BuildContext context) {
+//                    return Challenge25();
+//                  }));
+//                },
+//              ),
+//              RaisedButton(
+//                child: Text('Challenge 26'),
+//                onPressed: () {
+//                  Navigator.of(context)
+//                      .push(MaterialPageRoute(builder: (BuildContext context) {
+//                    return Challenge26();
+//                  }));
+//                },
+//              ),
+//              RaisedButton(
+//                child: Text('Challenge 27'),
+//                onPressed: () {
+//                  Navigator.of(context)
+//                      .push(MaterialPageRoute(builder: (BuildContext context) {
+//                    return Challenge27();
+//                  }));
+//                },
+//              ),
             ],
           ),
         ),
