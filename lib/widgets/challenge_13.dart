@@ -16,12 +16,25 @@ class _Challenge13State extends State<Challenge13> {
   var _userController;
   String removeMsg = '';
   String winMsg = '';
-  String lefMsg = '';
+//  String lefMsg = '';
   int player = 0;
   int comp;
+  var startingNumber = n;
+
+//  String removeMsg1;
+//  String leftMsg1;
+//  String removeMsg2;
+//  String leftMsg2;
+//  String removeMsg3;
+//  String leftMsg3;
+
+  String leftMsg = '';
+
+  String removeMsg1 = '';
 
   @override
   Widget build(BuildContext context) {
+    print(n.toString());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -36,8 +49,10 @@ class _Challenge13State extends State<Challenge13> {
           padding: EdgeInsets.all(4),
           child: Column(
             children: <Widget>[
-              n != 0
-                  ? Text('Starting number: ' + ' ' + n.toString())
+              startingNumber != 0
+                  ? Text('Starting number/Left: ' +
+                      ' ' +
+                      startingNumber.toString())
                   : Text(''),
               Container(
                 padding: EdgeInsets.all(10),
@@ -62,19 +77,26 @@ class _Challenge13State extends State<Challenge13> {
                 ),
               ),
 //              Text('How many do you want to remove?'),
-              Text(lefMsg),
-              Text(removeMsg),
-              Text(lefMsg),
+              removeMsg1 != '' ? Text(removeMsg1) : Text(''),
+              removeMsg != '' ? Text(removeMsg) : Text(''),
+
+              leftMsg != '' ? Text(leftMsg) : Text(''),
+//              removeMsg2 != null ? Text(removeMsg2) : Text(''),
+//              removeMsg3 != null ? Text(removeMsg3) : Text(''),
+//              leftMsg2 != null ? Text(leftMsg2) : Text(''),
+//              leftMsg3 != null ? Text(leftMsg3) : Text(''),
               Text(winMsg),
               RaisedButton(
                 child: Text('play'),
                 onPressed: () {
-                  var startingNumber = n;
+                  setState(() {
+                    removeMsg1 = 'Yoy removed : ' + ' ' + player.toString();
+                  });
 //                  setState(() {
 //                    n = rnd.nextInt(10) + 20;
 //                  });
-
-                  while (startingNumber > 0) {
+//if(_clicked){
+                  if (startingNumber > 0) {
                     print('player' + '  is : ' + player.toString());
 //                    print("How many do you want to remove? ");
                     if (player < 1 || player > 3) {
@@ -82,27 +104,36 @@ class _Challenge13State extends State<Challenge13> {
                     }
                     if (startingNumber == 3 && player == 3) {
                       setState(() {
+                        leftMsg = '';
+                        removeMsg = '';
+                        removeMsg1 = '';
+
                         winMsg = "Computer wins";
                       });
                       print("Computer wins");
-                      break;
                     } else if (startingNumber == 2 && player == 2) {
                       setState(() {
+                        leftMsg = '';
+                        removeMsg = '';
+                        removeMsg1 = '';
                         winMsg = "Computer wins";
                       });
 
                       print("Computer wins");
-                      break;
                     } else if (startingNumber == 1 && player == 1) {
                       setState(() {
+                        leftMsg = '';
+                        removeMsg = '';
+                        removeMsg1 = '';
                         winMsg = "Computer wins";
                       });
                       print("Computer wins");
-                      break;
                     }
-                    startingNumber -= player;
                     setState(() {
-                      lefMsg = startingNumber.toString() + " left";
+                      startingNumber -= player;
+                    });
+                    setState(() {
+                      leftMsg = startingNumber.toString() + " left";
                     });
                     print(startingNumber.toString() + " left");
 
@@ -111,10 +142,12 @@ class _Challenge13State extends State<Challenge13> {
                     });
                     if (startingNumber == 1) {
                       setState(() {
+                        leftMsg = '';
+                        removeMsg = '';
+                        removeMsg1 = '';
                         winMsg = "You win";
                       });
                       print("You win");
-                      break;
                     } else if (startingNumber == 2) {
                       startingNumber -= 1;
                       setState(() {
@@ -129,7 +162,7 @@ class _Challenge13State extends State<Challenge13> {
                       });
                       print("Computer removes 2");
                       setState(() {
-                        lefMsg = startingNumber.toString() + " left";
+                        leftMsg = startingNumber.toString() + " left";
                       });
                       print(startingNumber.toString() + " left");
                     } else if (startingNumber > 3) {
@@ -142,18 +175,32 @@ class _Challenge13State extends State<Challenge13> {
 
                       if ((startingNumber -= comp) > 0) {
                         setState(() {
-                          lefMsg = startingNumber.toString() + " left";
+                          leftMsg = startingNumber.toString() + " left";
                         });
                         print(startingNumber.toString() + " left");
                       } else {
                         setState(() {
+                          leftMsg = '';
+                          removeMsg = '';
+                          removeMsg1 = '';
                           winMsg = "You win";
                         });
                         print("You win");
-                        break;
                       }
                     }
                   }
+                },
+              ),
+              RaisedButton(
+                child: Text('Restart'),
+                onPressed: () {
+                  setState(() {
+                    leftMsg = '';
+                    removeMsg = '';
+                    winMsg = '';
+                    removeMsg1 = '';
+                    startingNumber = rnd.nextInt(10) + 20;
+                  });
                 },
               )
             ],
