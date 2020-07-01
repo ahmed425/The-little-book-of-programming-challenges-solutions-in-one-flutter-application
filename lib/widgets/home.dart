@@ -23,6 +23,7 @@ import 'challenge_19.dart';
 import 'challenge_20.dart';
 import 'challenge_21.dart';
 import 'challenge_22.dart';
+import 'challenge_23.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -238,15 +239,15 @@ class Home extends StatelessWidget {
                   }));
                 },
               ),
-//              RaisedButton(
-//                child: Text('Challenge 23'),
-//                onPressed: () {
-//                  Navigator.of(context)
-//                      .push(MaterialPageRoute(builder: (BuildContext context) {
-//                    return Challenge23();
-//                  }));
-//                },
-//              ),
+              RaisedButton(
+                child: Text('Challenge 23'),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (BuildContext context) {
+                    return Challenge23();
+                  }));
+                },
+              ),
 //              RaisedButton(
 //                child: Text('Challenge 24'),
 //                onPressed: () {
