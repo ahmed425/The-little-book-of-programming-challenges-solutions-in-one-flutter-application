@@ -3,14 +3,6 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-int playerScore = 0;
-int compScore = 0;
-int ifAce = 0;
-bool bust = false;
-String choice;
-int lives = 12;
-var code = new List(4);
-
 class Challenge27 extends StatefulWidget {
   @override
   _Challenge27State createState() => _Challenge27State();
@@ -23,8 +15,10 @@ class _Challenge27State extends State<Challenge27> {
   var _msg4 = '';
   var _msg5 = '';
 
-  dynamic input;
+  String word;
+  var guess;
 
+  String userGuess;
   @override
   Widget build(BuildContext context) {
     var _ifAceController;
@@ -48,16 +42,35 @@ class _Challenge27State extends State<Challenge27> {
               child: TextField(
                 onChanged: (value) {
                   setState(() {
-                    input = int.parse(value);
+                    word = value;
+                    guess = new List(word.length);
                   });
                 },
                 controller: _ifAceController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Guess 4 digit code",
+                    hintText: "Type a word",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey[200]))),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    userGuess = value;
+                  });
+                },
+                controller: _ifAceController,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: _msg5,
+                    hintStyle: TextStyle(color: Colors.grey)),
+              ),
+            ),
+
             RaisedButton(
               child: Text('Play'),
               onPressed: () {
@@ -69,20 +82,7 @@ class _Challenge27State extends State<Challenge27> {
             RaisedButton(
               child: Text('Reset'),
               onPressed: () {
-                lives = 12;
-                Random rnd = new Random();
-                for (int i = 0; i < code.length; i++) {
-                  code[i] = rnd.nextInt(10);
-                  print("code is : " + code.toString());
-                }
-                setState(() {
-//                  input = 0;
-                  _msg1 = '';
-                  _msg2 = '';
-                  _msg3 = '';
-                  _msg4 = '';
-                  _msg5 = '';
-                });
+                reset();
               },
             ),
             _msg1 != null ? Text(_msg1) : Text(''),
@@ -96,73 +96,70 @@ class _Challenge27State extends State<Challenge27> {
     );
   }
 
+  int lives = 6;
+  void reset() {
+    lives = 5;
+    setState(() {
+      _msg1 = '';
+      _msg3 = '';
+      _msg2 = '';
+      _msg4 = '';
+      _msg5 = "You have " + lives.toString() + " lives left - Letter: ";
+    });
+  }
+
   void play() {
-    //    Scanner in = new Scanner(System.in);
-    Random rnd = new Random();
-
-    var guess = new List(4);
-
-    if (lives == 12) {
-      for (int i = 0; i < code.length; i++) {
-        code[i] = rnd.nextInt(10);
-        print("code is : " + code.toString());
-      }
-    }
-    print("code is : " + code.toString());
-
-    dynamic myInput = input;
+    for (int i = 0; i < guess.length; i++) guess[i] = '*';
     lives--;
-    print(lives.toString());
-    print(myInput);
-    guess[3] = (myInput % 10).toInt();
-    print(guess[3]);
-    myInput /= 10;
-    guess[2] = (myInput % 10).toInt();
-    print(guess[2]);
-    myInput /= 10;
-    guess[1] = (myInput % 10).toInt();
-    print(guess[1]);
-    myInput /= 10;
-    guess[0] = (myInput % 10).toInt();
-    print(guess[0]);
-    print(guess);
-
-    if (lives > 0) {
-      int correctPlace = 0;
-      for (int i = 0; i < code.length; i++) {
-        if (code[i] == guess[i]) correctPlace++;
-      }
+    if (lives >= 0) {
       setState(() {
-        _msg1 = "You guessed " +
-            correctPlace.toString() +
-            " digit(s) in the correct place";
+        _msg1 = "Word to guess: ";
       });
-      if (correctPlace == 4) {
+      print("Word to guess: ");
+      setState(() {
+        _msg2 = guess.toString();
+      });
+      printList(guess);
+      setState(() {
+        _msg5 = "You have " + lives.toString() + " lives left - Letter: ";
+      });
+      print("You have " + lives.toString() + " lives left - Letter: ");
+//      String input = in.nextLine();
+      String letter = '0';
+      if (userGuess.length == word.length && userGuess == word) {
+//    System.out.println("You guessed it");
         setState(() {
-          _msg2 = "You win!";
+          _msg1 = '';
+          _msg2 = '';
+          _msg4 = '';
+          _msg5 = '';
+          _msg3 = "You guessed it right , you win ! ";
         });
+//    in.close();
+        return;
+      } else {
+        letter = userGuess.substring(0, 0);
       }
-      int count = 0;
-      for (int i = 0; i < code.length; i++) {
-        for (int j = 0; j < guess.length; j++) {
-          if (code[i] == guess[j] && i != j) count++;
-        }
-      }
-      setState(() {
-        _msg3 = "You guessed " +
-            count.toString() +
-            " digit(s) but in the wrong place";
-      });
-      setState(() {
-        _msg4 = "Lives remaining: " + lives.toString();
-      });
-      print("Lives remaining: " + lives.toString());
-    }
 
-    if (lives < 1) {
-      setState(() {
-        _msg5 = "You lose!";
-      });
+      for (int i = 0; i < word.length; i++) {
+        if (word.substring(i, i) == letter) guess[i] = letter;
+      }
+
+//    System.out.println("You lose!");
     }
+    if (lives < 0)
+      setState(() {
+        _msg4 = 'You lose!';
+        _msg1 = '';
+        _msg2 = '';
+        _msg3 = '';
+        _msg5 = '';
+      });
+//    in.close();
+  }
+
+  void printList(List arr) {
+    for (int i = 0; i < arr.length; i++) print(arr[i]);
+    print("\n");
   }
 }
