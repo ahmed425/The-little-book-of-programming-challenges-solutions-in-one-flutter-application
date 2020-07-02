@@ -34,6 +34,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          'Challenges_Ahmed',
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
         backgroundColor: Colors.blue,
         elevation: 0,
         iconTheme: IconThemeData(
