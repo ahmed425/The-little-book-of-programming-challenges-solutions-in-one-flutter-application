@@ -155,6 +155,10 @@ class _Challenge26State extends State<Challenge26> {
       });
       if (correctPlace == 4) {
         setState(() {
+          _msg4 = '';
+          _msg3 = '';
+          _msg1 = '';
+          _msg5 = '';
           _msg2 = "You win!";
         });
       }

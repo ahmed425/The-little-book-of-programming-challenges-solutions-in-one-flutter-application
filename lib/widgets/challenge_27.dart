@@ -38,6 +38,7 @@ class _Challenge27State extends State<Challenge27> {
               decoration: BoxDecoration(
                   border: Border(bottom: BorderSide(color: Colors.grey[200]))),
               child: TextField(
+                obscureText: true,
                 onChanged: (value) {
                   setState(() {
                     word = value;
@@ -47,7 +48,7 @@ class _Challenge27State extends State<Challenge27> {
                 controller: _ifAceController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Type a word",
+                    hintText: "Player 1, type a word:",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),
@@ -72,8 +73,15 @@ class _Challenge27State extends State<Challenge27> {
             RaisedButton(
               child: Text('Play'),
               onPressed: () {
-                play();
+                if (userGuess != null) {
+                  play();
 //
+                } else {
+                  setState(() {
+                    _msg1 =
+                        'Player 2, Please enter your guess first and then press play';
+                  });
+                }
               },
             ),
 //
@@ -119,9 +127,11 @@ class _Challenge27State extends State<Challenge27> {
       });
       printList(guess);
       setState(() {
-        _msg5 = "You have " + lives.toString() + " lives left - Letter: ";
+        _msg5 =
+            "Player 2, You have " + lives.toString() + " lives left - Letter: ";
       });
-      print("You have " + lives.toString() + " lives left - Letter: ");
+      print(
+          "Player 2, You have " + lives.toString() + " lives left - Letter: ");
 //      String input = in.nextLine();
       String letter = '0';
       if (userGuess.length == word.length && userGuess == word) {

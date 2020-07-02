@@ -50,7 +50,7 @@ class _Challenge16State extends State<Challenge16> {
                 controller: _sentenceController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Guess the number",
+                    hintText: "Guess the number (from 1 to 100)",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),

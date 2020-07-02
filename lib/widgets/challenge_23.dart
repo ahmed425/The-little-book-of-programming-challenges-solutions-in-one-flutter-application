@@ -46,7 +46,7 @@ class _Challenge23State extends State<Challenge23> {
                 controller: _XController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter X coordinate",
+                    hintText: "Enter X coordinate starting from zero",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),
@@ -61,7 +61,7 @@ class _Challenge23State extends State<Challenge23> {
                 controller: _YController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter Y coordinate",
+                    hintText: "Enter Y coordinate starting from zero",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),

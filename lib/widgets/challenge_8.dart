@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 class VoteCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: TextTheme(bodyText1: TextStyle(fontSize: 25))),
-      home: Vote(),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: Vote(),
     );
   }
 }

@@ -41,7 +41,7 @@ class _LogicGatesState extends State<LogicGates> {
                 controller: _firstInputController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "enter your choice",
+                    hintText: "enter 0 or 1",
                     hintStyle: TextStyle(color: Colors.grey)),
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
@@ -62,7 +62,7 @@ class _LogicGatesState extends State<LogicGates> {
                 controller: _secondInputController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "enter your choice",
+                    hintText: "enter 0 or 1",
                     hintStyle: TextStyle(color: Colors.grey)),
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[

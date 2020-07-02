@@ -43,7 +43,7 @@ class _ChallengeTwelveState extends State<ChallengeTwelve> {
                   },
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "enter height",
+                      hintText: "enter a number",
                       hintStyle: TextStyle(color: Colors.grey)),
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[

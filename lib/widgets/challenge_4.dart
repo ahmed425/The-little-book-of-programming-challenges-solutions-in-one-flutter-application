@@ -76,7 +76,7 @@ class _DistanceCalculateState extends State<DistanceCalculate> {
                 },
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "enter height",
+                    hintText: "enter time",
                     hintStyle: TextStyle(color: Colors.grey)),
                 keyboardType: TextInputType.number,
 //                inputFormatters: <TextInputFormatter>[

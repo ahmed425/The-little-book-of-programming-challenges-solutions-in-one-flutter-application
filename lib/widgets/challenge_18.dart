@@ -52,7 +52,7 @@ class _Challenge18State extends State<Challenge18> {
                 controller: _mod1Controller,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter Module 1 result :",
+                    hintText: "Enter number of spaces",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),
@@ -67,7 +67,7 @@ class _Challenge18State extends State<Challenge18> {
                 controller: _mod2Controller,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter Module 2 result :",
+                    hintText: "Enter number of stars",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),
@@ -82,7 +82,7 @@ class _Challenge18State extends State<Challenge18> {
                 controller: _mod2maxController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Enter pyramid base:",
+                    hintText: "Enter pyramid base width",
                     hintStyle: TextStyle(color: Colors.grey)),
               ),
             ),

@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 class AgeCalculate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: TextTheme(body1: TextStyle(fontSize: 21))),
-      home: Age(),
+    return Scaffold(
+      body: Age(),
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+      ),
+      backgroundColor: Colors.white,
     );
   }
 }

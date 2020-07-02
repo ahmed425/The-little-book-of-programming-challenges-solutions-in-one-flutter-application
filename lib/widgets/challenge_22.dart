@@ -29,56 +29,14 @@ class _Challenge22State extends State<Challenge22> {
           child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-//            Container(
-//              padding: EdgeInsets.all(10),
-//              decoration: BoxDecoration(
-//                  border: Border(bottom: BorderSide(color: Colors.grey[200]))),
-//              child: TextField(
-//                onChanged: (value) {
-//                  name = value;
-//                },
-//                controller: _nameController,
-//                decoration: InputDecoration(
-//                    border: InputBorder.none,
-//                    hintText: "Enter a name",
-//                    hintStyle: TextStyle(color: Colors.grey)),
-//              ),
-//            ),
             RaisedButton(
-              child: Text('Display Array'),
+              child: Text('Display Array on screen'),
               onPressed: () {
                 _clicked = true;
                 createArr();
               },
             ),
-//            RaisedButton(
-//              child: Text('Display Array'),
-//              onPressed: () {
-//                getTextWidgets();
-//              },
-//            ),
-//            getTextWidgets(),
             x != null && _clicked ? Text(x.toList().toString()) : Text(''),
-//            getTextWidgets(),
-//          for (int i = 0; i < x.length; i++) {
-////            Text('')
-//                  for (int j = 0; j < x[i].length; j++) {
-//                 return new  Text('');
-//                  }
-//    }
-//
-//            RaisedButton(
-//              child: Text('Display Array with background'),
-//              onPressed: () {
-//                for (int i = 0; i < x.length; i++) {
-//                  for (int j = 0; j < x[i].length; j++) {
-////                    x[i][j] = rnd.nextInt(15);
-//        (x[i][j].toString() + "\t");
-//                  }
-//      print("\n");
-//                }
-//              },
-//            ),
           ],
         ),
       )),
